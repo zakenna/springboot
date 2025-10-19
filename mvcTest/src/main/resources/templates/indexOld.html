@@ -1,0 +1,37 @@
+<!-- src/main/resources/templates/index.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index - 로그인 & 회원가입</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Welcome to the Application</h1>
+
+<div th:if="${user}">
+    <p th:text="${user}"></p>
+    님 환영합니다.
+</div>
+
+<h2>회원가입</h2>
+<form action="/register" method="post">
+   이름: <input type="text" name="name"><br>
+   이메일: <input type="text" name="email" required><br>
+   패스워드: <input type="password" name="pwd" required><br>
+   나이: <input type="text" name="age"><br>
+   <button type="submit">회원가입</button>
+</form>
+
+<h2>로그인</h2>
+<form action="/login" method="post">
+    <input type="text" name="email" required><br>
+    <input type="password" name="pwd" required><br>
+    <button type="submit">로그인</button>
+</form>
+
+<div th:if="${message}">
+    <p th:text="${message}"></p>
+</div>
+
+</body>
+</html>

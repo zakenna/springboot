@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <table>
+      <thead>
+        <tr>
+            <th>Id</th>
+            <th>이름</th>
+            <th>이메일</th>
+            <th>패스워드</th>
+            <th>나이</th>
+            <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="m : ${list}">
+            <td th:text="${m.id}"></td>
+            <td th:text="${m.name}"></td>
+            <td th:text="${m.email}"></td>
+            <td th:text="${m.pwd}"></td>
+            <td th:text="${m.age}"></td>
+            <td>
+                <a th:href="@{/del/{id}(id=${m.id})}">삭제</a>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</body>
+</html>
